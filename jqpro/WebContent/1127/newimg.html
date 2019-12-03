@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+	$(function(){
+		
+		imgs = [ '../images/단풍.jpg','../images/가구1.jpg','../images/가구2.jpg','../images/가구3.jpg',
+			'../images/가위_우.PNG','../images/가위_좌.PNG','../images/대나무숲.jpg','../images/대한민국전도.jpg',
+			'../images/사자.jpg','../images/산.png','../images/색깔표.GIF','../images/셔틀콕.jpg',
+			'../images/아메리카노.jpg','../images/에스프레소.jpg','../images/카푸치노.jpg','../images/폼연습.png']
+		
+		$('button').on('click',function(){
+				
+				rand = Math.floor(Math.random()*imgs.length);
+				
+			/* $('<img>',{
+				'src' : imgs[rand],
+				'width' : '100px',
+				'heigth' : '100px',
+				'click' : function(){
+					$(this).css('border', '2px solid red');
+				}
+			}).appendTo('body'); */
+			
+			$('body').append(
+				$('<img>',{
+					'src' : imgs[rand],
+					'width' : '100px',
+					'heigth' : '100px',
+					'click' : function(){
+						$(this).css('border', '2px solid red');
+					}
+				})	
+			);
+			
+			
+		})
+		
+	})
+</script>
+</head>
+<body>
+<button type="button">이미지 추가</button>
+<br>
+</body>
+</html>

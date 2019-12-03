@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.siblings * { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  
+	$('#next').click(function(){
+		$("#d1 li.start").next().css({"color": "red", "border": "2px solid red"});
+	})
+	
+	$('#nextAll').click(function(){
+		$('#d1 li.start').nextAll().css({"color": "blue", "border": "2px solid blue"});
+	})
+	
+	$('#nextUnt').click(function(){
+//		$('#d1 li.start').nextUntil('li:eq(6)').css({"color": "green", "border": "2px solid green"});
+		$('#d1 li.start').nextUntil('li.stop').css({"color": "green", "border": "2px solid green"});
+	})
+	
+	$('#find').click(function(){
+		$('#d1 ul').find('li:eq(0)').css({'color':'pink', 'border':'2px solid pink'});
+	})
+	/////////////////////////////////////////
+	$('#prev').click(function(){
+		$('#d2 li.stop').prev().css({"color": "red", "border": "2px solid red"});
+	})
+	
+	$('#prevAll').click(function(){
+		$('#d2 li.stop').prevAll().css({'color':'blue', 'border':'2px solid blue'});
+	})
+	
+	$('#prevUnt').click(function(){
+		$('#d2 li.stop').prevUntil('#d2 li.start').css({'color':'green', 'border':'2px solid green'});
+	})
+	/////////////////////////////////////////
+	$('#parent').click(function(){
+		$('#d3 span').parent().css({"color": "red", "border": "2px solid red"});
+	})	
+	
+	$('#parents').click(function(){
+		$('#d3 span').parents('#d3 ul').css({'color':'blue', 'border':'2px solid blue'});
+	})
+	
+	$('#parentsUnt').click(function(){
+		$('#d3 a').parentsUntil('#d3 ul').css({"color": "green", "border": "2px solid green"});
+	})
+	
+	$('#children').click(function(){
+		$('#d3 p').children().css({'color':'pink', 'border':'2px solid pink'});
+	})
+	
+	/////////////////////////////////////////
+	
+	$('#siblings').click(function(){
+		$('#d4 li.start').siblings().css({'color':'pink', 'border':'2px solid pink'});
+	})
+	$('#siblings_ele').click(function(){
+		$('#d4 li.start').siblings('li:last').css({'color':'blue', 'border':'2px solid blue'});
+		$('#d4 li.start').siblings('li:eq(4)').css({'color':'red', 'border':'2px solid red'});
+	})
+});
+</script>
+</head>
+<body>
+
+<div id="d1" style="width:500px;" class="siblings">
+  <ul>ul (parent)  
+    <li>li (sibling)</li>
+    <li>li (sibling)</li>
+    <li class="start">li (sibling with class name "start")</li>
+    <li>li (the next sibling of li with class name "start")</li>
+    <li>li (sibling)</li>
+    <li>li (sibling)</li>
+    <li class="stop">li (sibling)</li>
+  </ul>   
+</div>
+<button id="next" type="button">next</button>
+<button id="nextAll"type="button">nextAll</button>
+<button id="nextUnt" type="button">nextUntil</button>
+<button id="find" type="button">find</button>
+<br>
+<hr>
+<div id="d2" style="width:500px;" class="siblings">
+  <ul>ul (parent)  
+    <li>li (sibling)</li>
+    <li>li (sibling)</li>
+    <li class="start">li (sibling with class name "start")</li>
+    <li>li (the next sibling of li with class name "start")</li>
+    <li>li (sibling)</li>
+    <li>li (sibling)</li>
+    <li class="stop">li (sibling)</li>
+  </ul>   
+</div>
+<button id="prev" type="button">prev</button>
+<button id="prevAll"type="button">prevAll</button>
+<button id="prevUnt" type="button">prevUntil</button>
+<br>
+<hr>
+<div id="d3" style="width:500px;" class="siblings">
+  <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span>span
+        	<p>pTag(directchild)
+        		<a>aTag</a> (grandchild)
+        	</p>
+        </span>
+      </li>
+    </ul> 
+</div>
+<button id="parent" type="button">parent</button>
+<button id="parents"type="button">parents</button>
+<button id="parentsUnt" type="button">parentsUnt</button>
+<button id="children" type="button">children</button>
+<br>
+<hr>
+<div id="d4" style="width:500px;" class="siblings">
+  <ul>ul (parent)  
+    <li>li (sibling)</li>
+    <li>li (sibling)</li>
+    <li class="start">li (sibling with class name "start")</li>
+    <li>li (the next sibling of li with class name "start")</li>
+    <li>li (sibling)</li>
+    <li>li (sibling)</li>
+    <li class="stop">li (sibling)</li>
+  </ul>   
+</div>
+<button id="siblings" type="button">siblings</button>
+<button id="siblings_ele" type="button">siblings_ele</button>
+</body>
+</html>

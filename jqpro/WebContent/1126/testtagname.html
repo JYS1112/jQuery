@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$(function() {
+		/* h1list = document.getElementByTagName('h1');
+		h1list[0].style.color = "red"; */
+		
+		h1list = $('h1');							// 전체 스타일 주기
+		h1list.css('color', 'blue');
+		//h1list.eq(1).css('color', 'green');		// 하나만 골라서 스타일 주기
+		//h1list.eq(1).css('background', 'yellow');
+		h1list.eq(1).css('color', 'green')			// 메소드 체이닝
+					.css('background','yellow');
+		
+		h1list.eq(2).css({'color' : 'red', 'background' : 'green'});	//
+		
+		
+		
+	})
+</script>
+</head>
+<body>
+	<h1>jQuery를 배웁니다</h1>
+	<h1>짧고 간결합니다.</h1>
+	<h1>배우기 쉬워요~~~</h1>
+	<h1>무료에요ㄴ</h1>
+</body>
+</html>

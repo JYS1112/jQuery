@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		// 버튼클릭시 버튼의 내용을 가져온다
+		$('button').on('click',function(){
+			//alert($(this).text());
+			// 내용비교 이름 또는 주소 - 
+			res ="";
+			
+			if($(this).text() == "이름"){
+				//alert($('#name').val());
+				res += "당신의 이름은 "+$('#name').val()+" 입니다.<br>"
+			}else if($(this).text() == "주소"){
+				res += "당신의 주소는 "+$('#addr').val()+" 입니다.<br>"
+				//alert($('#addr').val());
+			}else if($(this).text() == "이름변경"){
+				//변경할 이름을 입력
+				pname = prompt("변경할 이름을 입력하세요");
+				$('#name').val(pname);
+				
+			}else if($(this).text() == "주소변경"){
+				//변경할 주소를 입력
+				paddr = prompt("변경할 주소를 입력하세요");
+				$('#addr').val(paddr);
+				
+			}
+			$('#result1').html(res);
+		})
+			
+		
+		
+	})	
+</script>
+</head>
+<body>
+	이름 : <input id="name" type="text" value="korea"><br>
+	주소 : <input id="addr" type="text" value="대전"><br>
+	<br>
+	<button type="button">이름</button>
+	<button type="button">주소</button>
+	<br>
+	<div id="result1"></div>
+	<button type="button">이름변경</button>
+	<button type="button">주소변경</button>
+</body>
+</html>

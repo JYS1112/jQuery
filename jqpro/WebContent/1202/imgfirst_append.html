@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			vid = $(this).attr('id');
+			if(vid == 'start'){
+				
+				$(this).attr('disabled','disabled');
+				
+				a = window.setInterval(function(){
+					$('img:first').appendTo('div');
+				}, 500)
+			}else if(vid == 'stop'){
+				window.clearInterval(a);
+				$('#start').prop('disabled',false);
+			}
+			
+		})
+		
+		$('p').on('click',function(){
+			vtitle = $(this).attr('title');
+			/* $('<img/>',{'src':'../images/'+vtitle+'.jpg' 
+			}).insertAfter(this); */
+			
+			$(this).before(
+				$('<img/>',{
+					'src':'../images/'+vtitle+'.jpg' 
+				})		
+			)
+		})	
+		
+
+	})
+</script>
+<style>
+	img{
+		width : 100px;
+		height : 100px;
+	}
+</style>
+</head>
+<body>
+	<div>
+		<img src="../images/사자.jpg">
+		<img src="../images/단풍.jpg">
+		<img src="../images/핫초코.jpg">
+		<img src="../images/풍차.jpg">
+		<img src="../images/가구1.jpg">
+		<img src="../images/Penguins.jpg">
+		<img src="../images/Koala.jpg">
+	</div>
+	<button id="start" type="button">시작</button>
+	<button id="stop" type="button">멈추기</button>
+	<br><br>
+	<hr><br>
+	
+	<div id="img2">
+		<p title="Tulips">튜울립</p>
+		<p title="Koala">코알라</p>
+		<p title="Penguins">펭귄</p>
+		<p title="pizza">피자</p>
+	</div>
+	
+</body>
+</html>

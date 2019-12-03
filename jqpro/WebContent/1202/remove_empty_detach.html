@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		//$('.pp').on('click',function(){})
+		$('.pp').click(function(){
+			$(this).css('font-size','+=2px');
+		})
+		
+		$('button').click(function(){
+			txt = $(this).text();
+			if(txt=='remove'){
+				$('div').remove();
+			}else if(txt=='empty'){
+				$('div').empty();
+			}
+		})
+
+		$('#remove').on('click',function(){
+			vp2 = $('#p2').remove();
+			vp2.appendTo('body');
+		})
+		
+		$('#detach').on('click',function(){
+			vp3 = $('#p3').detach();
+			vp3.appendTo('body');
+		})
+		
+	})
+</script>
+<style>
+	div{
+		width : 50%;
+		height : auto;
+		border : 3px solid orange;
+		padding : 10px;
+		margin : 10px;
+	}
+</style>
+</head>
+<body>
+<div>
+	<p class="pp" id="p1">무궁화 꽃이 피었습니다.</p>
+	<p class="pp" id="p2">맛있는 밥 먹고 힘내요.</p>
+	<p class="pp" id="p3">내년엔 밝은 모습으로 볼수 있어요.</p>
+</div>
+<br>
+<pre>
+ remove : 선택요소를 지운다
+ 		  $('div').remove() : div요소가 완전히 지워진다.
+ empty : 선택요소의 자식,후손,내용과 요소를 지운다.
+ 		  $('div').empty() : div요소는 지우지않고 div요소만을 지운다(비운다). 
+</pre>
+<button type="button">remove</button>
+<button type="button">empty</button>
+<br><br>
+<hr>
+<button id="remove" type="button">remove_event</button>
+<button id="detach" type="button">detach_event</button>
+	
+<pre>
+remove : 요소를 삭제한다
+		 삭제시 이벤트 핸들러도 같이 삭제된다.
+		 p2를 삭제하고 body로 추가해서 확인
+detach : 요소를 삭제한다
+		 삭제시 이벤트 핸들러는 삭제되지 않는다.
+		 p3을 삭제하고 body로 추가해서 확인
+</pre>
+</body>
+</html>

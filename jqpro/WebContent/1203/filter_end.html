@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		// 홀수번째 중 0번째 선택
+		//$('div:odd:eq(0)')
+		//$('div:odd').eq(0)
+		//$('div').filter(':odd:eq(0)')
+		/* $('div').filter(':odd').eq(0).css('background','lightblue');
+		$('div').filter(':odd').eq(1).css('background','pink');
+		$('div').filter(':odd').eq(2).css('background','lightgreen'); */
+		$('div').filter(':odd').eq(0).css('background','lightblue')
+							   .end().eq(1).css('background','pink')	// end는 그 전단계(odd)로 간다.
+							   .end().eq(2).css('background','lightgreen')
+		
+
+	})
+</script>
+<style>                          
+	div{
+		float : left;
+	}
+</style>
+</head>
+<body>
+<div>a</div> 
+<div>b</div> 
+<div>c</div> 
+<div>d</div> 
+<div>e</div> 
+<div class="orange">f</div> 
+<div>g</div>
+</body>
+</html>

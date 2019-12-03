@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		
+		$('.pp').on('click',function(){
+			$(this).css('font-size','+=2px');
+		})
+		
+		$('button').on('click',function(){
+			vtxt = $(this).text();
+			if(vtxt == "clone"){
+				$('#p2').clone().appendTo('body');
+				// vp2 = $('#p2').clone()
+				// vp2.appendTo('body');
+			}else if(vtxt == "clonetrue"){
+				vp3 = $('#p3').clone(true);
+				$('body').append(vp3);
+			}
+		})
+		
+
+	})
+</script>
+</head>
+<body>
+<pre>
+	clone()	: 요소를 복사한다.
+			복사 할때 이벤트 핸들러는 복사되지 않는다.
+			$('#p2').clone().appendTo('body');
+	
+	clone(true)	: 요소를 복사한다.
+				   복사할때 이벤트 핸들러도 같이 복사한다.
+				  $('body').append(vp3);
+</pre>
+<div>
+	<p class="pp" id="p1">무궁화 꽃이 피었습니다.</p>
+	<p class="pp" id="p2">맛있는 밥 먹고 힘내요.</p>
+	<p class="pp" id="p3">내년엔 밝은 모습으로 볼수 있어요.</p>
+</div>
+<br>
+<button type="button">clone</button>
+<button type="button">clonetrue</button>
+</body>
+</html>

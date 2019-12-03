@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+	$(function() {
+		$('button#btn1').on('click',function(){
+			
+			pp = $('<p id="p1">즐거운 jQuery~~~</p>');
+			
+			//$(pp).appendTo('#d1');
+			$('#d1').append(pp);
+			
+			$(pp).on('click',function(){
+				$(this).hide();
+			})
+			
+			
+		})
+		
+		$('#btn2').on('click',function(){
+			pp = $('</p>',{
+				'id' : 'p2',
+				'text' : '행복한 수요일~~~',
+				'click' : function(){
+					
+					cr = Math.floor(Math.random()*255);
+					cg = Math.floor(Math.random()*255);
+					cb = Math.floor(Math.random()*255);
+					
+					$(this).css('font-size','+=2px')
+					$(this).css('color','rgb(' +cr+ ','+cg+','+cb+')')
+				}
+			})
+			//$(pp).appendTo('#d2');
+			$('#d2').append(pp);
+			
+		})
+		
+		
+	})
+</script>
+<style>
+	#d1{
+		height : auto;
+		background : #fffafa;
+		padding : 5px;
+	}
+	
+	#d2{
+		height : auto;
+		background : #ddfafa;
+		padding : 5px;
+	}
+
+</style>
+</head>
+<body>
+<button type="button" id="btn1">클릭</button>
+<div id="d1"></div>
+<br>
+<button type="button" id="btn2">클릭</button>
+<div id="d2"></div>
+</body>
+</html>

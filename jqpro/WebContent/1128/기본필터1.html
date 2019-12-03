@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		$('li').css('width','200px');
+		$('li:first,li:last').css('background','yellow');
+		
+		$('li:lt(4)').css('font-size','30px')
+		$('li:eq(5)').css('background','red');
+		
+		$('tr:even').css('background','gray');
+		$('tr:odd').css('background','orange');
+		$('tr:first').css({'background':'black', 'color':'white', 'font-size':'40px'});
+	})
+</script>
+<style>
+	table{
+		/* border-collapse : collapse; */
+	}
+
+	td{
+		width : 300px;
+		height : 50px;
+		text-align : center;
+		padding : 50px;
+		
+	}
+</style>
+</head>
+<body>
+	<ul>
+		<li> one </li>
+		<li> two </li>
+		<li> three </li>
+		<li> four </li>
+		<li> five </li>
+		<li> six</li>
+		<li> seven</li>
+		<li> eight</li>
+		<li> nine</li>
+	</ul>
+	
+	<br><br>
+	
+	<table border=1>
+		<tr>
+			<td>상품</td>
+			<td>가격</td>
+		</tr>
+		<tr>
+			<td>one</td>
+			<td>62만원</td>
+		</tr>
+		<tr>
+			<td>two</td>
+			<td>45만원</td>
+		</tr>
+		<tr>
+			<td>three</td>
+			<td>33만원</td>
+		</tr>
+		<tr>
+			<td>four</td>
+			<td>72만원</td>
+		</tr>
+		<tr>
+			<td>five</td>
+			<td>77만원</td>
+		</tr>
+		<tr>
+			<td>six</td>
+			<td>54만원</td>
+		</tr>
+		<tr>
+			<td>seven</td>
+			<td>61만원</td>
+		</tr>
+		<tr>
+			<td>eight</td>
+			<td>52만원</td>
+		</tr>
+		<tr>
+			<td>nine</td>
+			<td>88만원</td>
+		</tr>
+		
+	</table>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

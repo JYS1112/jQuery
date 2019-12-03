@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		/* $('p').each(function(i){
+			//alert($(this).text());
+			
+			
+		}) */
+		result = "";
+		$('body :visible').each(function(i){
+			if(this.tagName == "P"){
+				result += i+"번째 태그이름 "+this.tagName +"&nbsp;&nbsp;&nbsp;";
+				result += "내용 "+$(this).text()+"<br>";
+			}
+			
+		})
+		
+		$('#d1').html(result);
+		
+		/////////////////////////////////////////////////////////////////
+		
+		result ="";
+		$('body :hidden').each(function(i){
+			if(this.tagName == "P"){
+				result += i+"번째 태그이름 "+this.tagName +"&nbsp;&nbsp;&nbsp;";
+				result += "내용 "+$(this).text()+"<br>";
+			}
+		})
+		
+		$('#d2').html(result);
+		
+	})
+</script>
+<style>
+	div{
+		width : 50%;
+		height : auto;
+		border : 3px solid orange;
+		padding : 10px;
+	}
+</style>
+</head>
+<body>
+	<p> 보이는 문단</p>
+	<p style="visibility:hidden;">숨겨진 문단</p>
+	<p style="display:none;"> 자리를 차지 하지 못한 문단 </p>
+	<p style="opacity:0;"> 투명한 문단</p>
+	<br/>
+	<span>보이는 요소</span>
+	<div id="d1"></div>
+	
+	<br>
+	<span>안보이는 요소</span>
+	<div id="d2"></div>	
+	
+	
+	
+</body>
+</html>
