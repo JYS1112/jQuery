@@ -7,13 +7,42 @@
 <link rel="stylesheet" href="../css/mycss.css">
 <script>
 	$(function(){
-		result = "contents : 태그가 있거나 없거나 자식의 내용을 모두 가져오기<br>"
 		
-		$('div').contents()
+		$('button').click(function(){
+			btxt = $(this).text();
+			if(btxt == 'contents'){
+				result = "contents : 태그가 있거나 없거나 자식의 내용을 모두 가져오기\n"
+				$('div').contents().each(function(i){
+					if(typeof this.tagName == "undefined"){
+						result += i+"번째 문자열 ==>> "+$(this).text()+"\n"						
+					}else{
+						result += i+"번째 ==>>"+ this.tagName +
+							" : "+$(this).html()+"\n" //$(this).html()
+					}
+				})
+				
+				alert(result);
+			}else if(btxt = 'children'){
+				result = "children : 태그가 있는것만을 대상으로 가져온다.\n"
+				$('div').children().each(function(i){
+					result += i+"번째 ==>>"+this.tagName+
+							" : "+$(this).html()+"\n"
+				})
+				alert(result);
+				
+			}
+		})
+		
 	
 
 	})
 </script>
+<style>
+	div{
+		width : 100%;
+		height : auto;
+	}
+</style>
 </head>
 <body>
 <pre>
@@ -23,12 +52,11 @@
 			    내용을 가져온다
 </pre>
 
-<div> KOREA
-	<p> 코리아 p태그 </p>
-	<span>스판 코리아
-		<span>스판 코리아의 span</span>
-	</span>
+<div>KOREA<p> 코리아 p태그 </p><span>스판 코리아<span>스판 코리아의 span</span></span>
 </div>
+<br>
+<button type="button">contents</button>
+<button type="button">children</button>
 
 </body>
 </html>

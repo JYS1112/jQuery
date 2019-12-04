@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <style>
 .siblings * { 
   display: block;
@@ -68,7 +69,34 @@ $(document).ready(function(){
 		$('#d4 li.start').siblings('li:last').css({'color':'blue', 'border':'2px solid blue'});
 		$('#d4 li.start').siblings('li:eq(4)').css({'color':'red', 'border':'2px solid red'});
 	})
-});
+	
+	///////////////////////////////////////////
+	$('#contents').click(function() {
+		// 태그가 없어도 문자열 가져오기
+		alert($('#d5').contents().text());
+	})
+	
+	$('#children').click(function(){
+		// 태그가 있는것만 문자열 가져오기
+		alert($('#d5').children().text());
+	})
+	
+	$('#contentsp').click(function(){
+		$('#d5').contents('p:first').css({'color':'green', 'border':'2px solid green'})
+		// 후손은 못찾는다. 자식을 찾는다.
+//		$('#d5').contents('span').css({'color':'red', 'border':'2px solid red'})
+	})
+	
+	$('#childrenp').click(function(){
+		$('#d5').children('p:last').css({'color':'blue', 'border':'2px solid blue'})
+		// 후손은 못찾는다. 자식을 찾는다.
+		//$('#d5').children('span').css({'color':'red', 'border':'2px solid red'})
+	})
+	
+	$('#find').click(function(){
+		$('#d5').find('span').css({'color':'red', 'border':'2px solid red'})
+	})
+})
 </script>
 </head>
 <body>
@@ -136,5 +164,22 @@ $(document).ready(function(){
 </div>
 <button id="siblings" type="button">siblings</button>
 <button id="siblings_ele" type="button">siblings_ele</button>
+<br><hr>
+<div id="d5" style="width:500px;" class="siblings">div (grandparent)
+	<p> P(child)
+		<span> span (grandchild)</span>
+		Hello~~
+	</p>
+	<p> P(child)
+		<span> span (grandchild)</span>
+		Happy~~
+	</p>
+	child no tag
+</div>
+<button type="button" id="contents">contents</button>
+<button type="button" id="children">children</button>
+<button type="button" id="find">find(후손)</button>
+<button type="button" id="contentsp">contents_p</button>
+<button type="button" id="childrenp">children_p</button>
 </body>
 </html>

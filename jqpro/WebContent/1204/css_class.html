@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		alert($('p').eq(0).css('background-color'));
+		
+		$('p').click(function(){
+			$(this).toggleClass('pborder')
+		})
+		
+		$('p').mouseover(function(){
+			$(this).addClass('bb');
+		})
+	
+		$('p').mouseout(function(){
+			$(this).removeClass('bb');
+		})
+		
+		$('img').mouseover(function(){
+			$(this).addClass('imgborder');
+		})
+
+		$('img').mouseout(function(){
+			$(this).removeClass('imgborder');
+		})
+		
+		$('div').click(function(){
+			if($(this).hasClass('bb')){
+				$(this).css('font-size','1.5em');
+				$(this).removeClass('bb');
+			}else{
+				$(this).css('font-size','10px');
+				$(this).addClass('bb');
+			}
+		})
+		
+
+	})
+</script>
+<style>
+.aa{
+	background : pink;
+}
+
+.bb{
+	background : lime;
+}
+
+.pborder{
+	border : 2px solid green;
+}
+
+.imgborder{
+	border : 10px solid blue;
+}
+
+img{
+	width : 100px;
+	height: 100px;
+}
+
+</style>
+</head>
+<body>
+<pre>
+addClass('classname') :
+	classname을 이용해서 동적으로 스타일을 추가변경한다
+
+removeClass('classname') :
+	classname을 이용해서 동적으로 스타일을 제거한다
+
+hasClass('classname') :
+	선택한 요소가 classname을 가지고 있는지 여부를 묻는다.
+	true or false를 반환한다.
+</pre>
+<p class="aa">무궁화 꽃이 피었습니다.</p>
+<p>단풍잎은 다~~ 떨어졌어요..</p>
+<p class="aa">준비한 자에게만 오는 것은 무엇일까요 ??</p>
+<p>점심시간은 언제~</p> 
+<br>
+<img src="../images/셔틀콕.jpg">
+<img src="../images/카푸치노.jpg">
+<img src="../images/풍차.jpg">
+<img src="../images/대나무숲.jpg">
+<img src="../images/단풍.jpg">
+<br><br>
+<div>
+	Hello~~
+</div>
+</body>
+</html>

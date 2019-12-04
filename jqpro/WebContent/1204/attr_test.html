@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		/* $('img').click(function(){
+			//alert($(this).attr('src'));
+			$(this).attr('title',$(this).attr('src'));
+		}) */
+//////////////////////////////////////////////////////////////////////	
+			
+		$('img').attr('title',function(){
+			a = $(this).attr('src');
+			b = a.lastIndexOf("/");
+			c = a.lastIndexOf(".");
+			vtit = a.substring(b+1, c);
+			return vtit;
+		})
+		
+		$('img').click(function(){
+			$(this).removeAttr('title');
+		})	
+
+	})
+</script>
+<style>
+img{
+	width : 100px;
+	height: 100px;
+}
+</style>
+</head>
+<body>
+<img src="../images/셔틀콕.jpg">
+<img src="../images/카푸치노.jpg">
+<img src="../images/풍차.jpg">
+<img src="../images/대나무숲.jpg">
+<img src="../images/단풍.jpg">
+</body>
+</html>

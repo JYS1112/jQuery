@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		/* $('#runBtn').click(function(){
+			check = "checkbox : "+$('#checkTest').prop('checked')+"\n"
+			check += "select : "+ $('#selTest option:eq(1)').prop('selected')+"\n"
+			check += "text : "+ $('#txtTest').prop('readonly')+"\n"
+			check += "button : "+ $('#btnTest').prop('disabled')+"\n"
+			alert(check);
+		}) */
+		
+		////////////////////////////////////////////////////////
+		$('#runBtn').click(function(){
+			check = $('#checkTest').prop('checked')
+			sel = $('#selTest option:eq(1)').prop('selected')
+			txt = $('#txtTest').prop('readonly')
+			btn = $('#btnTest').prop('disabled')
+			
+			$('#checkTest').prop('checked', !check)
+			$('#selTest option:eq(1)').prop('selected', !sel)
+			$('#txtTest').prop('readonly',!txt)
+			$('#btnTest').prop('disabled', !btn)
+		})
+		
+		//전체선택 change 이벤트
+		$('#checkall').change(function(){
+			//check = $('#checkall').prop('checked')
+			
+			/* $('.check').each(function(){
+				$(this).prop('checked',check)
+			}) */
+			all = $(this).prop('checked');
+			$('.check').prop('checked',all);
+		})
+		
+	})
+</script>
+</head>
+<body>
+<pre>
+	실행 버튼 클릭시 각 항목요소의
+	상태값을 변경한다.
+	
+	상태값 가져오기(get)
+	$('#checkTest').prop('checked')
+	
+	상태값 변경하기(set)
+	$('#checkTest').prop('checked', true)
+</pre>
+<form>
+	체크박스(라디오버튼) : 
+	<input type="checkbox" id="checkTest"><br><br>
+	<input type="checkbox" id="checkall">전체선택
+	<input type="checkbox" class="check">김희영
+	<input type="checkbox" class="check">이혜종
+	<input type="checkbox" class="check">박서흥
+	<input type="checkbox" class="check">김환
+	<input type="checkbox" class="check">방승환
+	<input type="checkbox" class="check">육지
+	<input type="checkbox" class="check">이정민
+	<br><br>
+	
+	리스트박스(select객체) :  
+	<select id="selTest">
+		<option value="1">하나</option> 
+		<option value="2">둘</option>
+		<option value="3">셋</option>  
+		<option value="4">넷</option>
+	</select>
+<br><br>
+	text객체	(readonly) : 
+	<input type="text" value="가나다" id="txtTest"><br><br>
+	
+	button객체(disabled) : 
+	<input type="button" value="연습용" id="btnTest"><br><br>
+	<input type="button" value="실행" id="runBtn">
+</form>
+</body>
+</html>
