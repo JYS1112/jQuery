@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		// 이미지를 더블클릭하면 사라진다.
+		//$('img').on('dblclick',function(){})
+		//$('img').bind('dblclick',function(){})
+		$('img').dblclick(function(){
+			$(this).hide();
+			if($('img:visible').length == 0){
+				$('button').show();
+			}
+		})
+		
+		$('button').click(function(){
+			$('img').show();
+			$(this).hide();
+		})
+		
+		$('img').hover(function(){
+			// mouseover
+			// 이미지 변경
+			temp = $(this).attr('aa')
+			ori = $(this).attr('src')
+			
+			$(this).attr('src',temp)
+		},function(){
+			// mouseout
+			// 이미지 복구
+			$(this).attr('src',ori);
+			
+		})
+	
+
+	})
+</script>
+<style>
+	img{
+		width : 300px;
+		height : 300px;
+	}
+	
+	button{
+		display : none;
+	}
+</style>
+</head>
+<body>
+	<img src="../images/풍차.jpg" aa="../images/Koala.jpg">
+	<img src="../images/핫초코.jpg" aa="../images/Penguins.jpg">
+	<img src="../images/셔틀콕.jpg" aa="../images/coffee1.jpg">
+	<img src="../images/식품1.jpg" aa="../images/식품2.jpg">
+	<img src="../images/가구1.jpg" aa="../images/가구2.jpg">
+	<br>
+	<button type="button">보이기</button>
+</body>
+</html>

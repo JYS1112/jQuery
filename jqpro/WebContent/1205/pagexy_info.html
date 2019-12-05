@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		$(document).mousemove(function(event){
+			res = "page 좌표 : "+event.pageX+" , "+event.pageY+"<br>"
+			$('#info').html(res);
+			// x좌표 200, y좌표 200일때
+			// 새로운 이미지를 추가한다
+			
+			if(event.pageX == 200 && event.pageY == 200){
+				$('#info').append('<img src="../images/Koala.jpg">')
+			}
+			
+			
+			
+			
+			
+			/* $(document).mousedown(function(event2){
+				res2 = "."
+				$(document).text();
+			}) */
+		})
+	
+
+	})
+</script>
+<style>
+	div{
+		width : 100%;
+		height : auto;
+	}
+ </style>
+</head>
+<body>
+<div id="info"></div>
+</body>
+</html>

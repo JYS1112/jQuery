@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		//$('div').eq(0).click
+		//$('div:eq(0)').click
+		//$('div').filter(':eq(0)')
+		$('div:first').mousedown(function(event){
+			res = "대상 : "+event.target.tagName+"<br>"
+			res += "page 좌표 : "+event.pageX+","+event.pageY+"<br>"
+			res += "스크린 좌표 : "+event.screenX+","+event.screenY+"<br>"
+			res += "버튼 : "+event.button+"<br>"
+			res += "ctrl : "+event.ctrlKey+"<br>"
+			$('#result').html(res);
+			
+			// 왼쪽버튼 눌렸으면 div의 배경색을 변경
+			if(event.button == 0){
+				$(this).css('background','lightblue')
+			}else if(event.button == 2){
+			// 오른쪽버튼 눌렸으면 테두리를 변경
+				$(this).css('border','3px solid pink')				
+			}else if(event.button == 1){
+			// 가운데버튼 눌렸으면 Hello라는 글자를 출력
+				$(this).text('Hello');
+			}
+			
+			
+		})
+		$('button:first').mousedown(function(event){
+			res = "대상 : "+event.target.tagName+"<br>"
+			res += "page 좌표 : "+event.pageX+","+event.pageY+"<br>"
+			res += "스크린 좌표 : "+event.screenX+","+event.screenY+"<br>"
+			res += "버튼 : "+event.button+"<br>"
+			res += "ctrl : "+event.ctrlKey+"<br>"
+			$('#result').html(res);
+		})
+	
+
+	})
+</script>
+<style>
+	#result{
+		width : 100%;
+		heigth : auto;
+		
+	}
+</style>
+</head>
+<body>	<!-- 인라인 스타일(html5에선 권장하지 않음 -->
+<div style= "width:300px;height:200px; background-color:yellow;" > </div>
+<br>
+<button type="button"> 버튼 </button>
+<br>
+<div id="result">
+
+</div>
+</body>
+</html>

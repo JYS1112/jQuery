@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		$('span#small').click(function(){
+			
+			$(this).css('background','red');
+			//event.stopPropagation();
+			return false;
+		})
+		
+		$('h1').on('click',function(){
+			$(this).css('background','green');
+		})
+		
+		// div의 테두리 색 변경
+		$('div').click(function(){
+			$('div').css('border','2px solid lightgreen');
+		})
+		
+		// span sp1의 배경색 변경
+		$('span#sp1').click(function(){
+			$('span#sp1').css('background','lightgreen');
+			event.stopPropagation();
+		})
+		
+		// button의 가로 세로 크기 변경
+		$('button').click(function(){
+			$('button').css({'width':'+=2px', 'height':'+=3px'});
+			return false;
+		})
+		
+	})
+</script>
+<style>
+	div{
+		width : 200px;
+		height : 200px;
+		background : pink;
+		padding : 80px;
+	}
+	
+	#sp1{
+		background : yellow;
+		padding : 50px;
+		display : inline-block;
+		width : 150px;
+		height : 100px;
+	}
+	
+	
+</style>
+</head>
+<body>
+<h1> 큰제목안에 <span id="small"> 작은 영역</span>이 있다</h1>
+<br><hr><br>
+<div> 
+	<span id="sp1">
+		<button> 클릭하세요</button>
+	</span>
+</div>
+<br><hr color="red"><br>
+<a href="http://www.daum.net">Daum사이트 가기</a>
+</body>
+</html>
