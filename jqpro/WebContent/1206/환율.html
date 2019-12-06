@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function(){
+		//cont에 대한 일괄적 이벤트 등록
+		vlist = document.getElementsByClassName('cont')
+		
+		for(i=0 ; i<vlist.length; i++){
+			vlist[i].addEventListener('click', sale);
+		}
+	}
+	
+	function sale(event){
+		//this를 사용가능, event를 매개변수로 받을 수 있다.
+		if(ptag != null){
+			ptag.parentNode.removeChild(ptag);
+		}
+		//할인율 랜덤 구하기
+		rr = Math.floor(Math.random()*6+5);
+		//새로운 p태그 생성
+		ptag = document.createElement("p");
+		//p태그에 들어갈 문자객체 생성 - createTextNode("")
+		
+		node = document.createTextNode("할인율 : "+rr+"%");
+		
+		//p태그에 TextNode를 추가 - append
+		ptag.appendChild(node);
+		//클릭한 div class=cont에 p태그를 추가
+		this.appendChild(ptag);
+		
+		this.removeEventListener('click',sale);
+		
+	}
+	
+	ptag = null
+	function click1(clickdiv){
+		//이전에 생성된 p태그를 지울것
+		if(ptag != null){
+			ptag.parentNode.removeChild(ptag);
+		}
+		//할인율 랜덤 구하기
+		rand = Math.floor(Math.random()*6+5);
+		//새로운 p태그 생성
+		ptag = document.createElement("p");
+		//p태그에 들어갈 문자객체 생성 - createTextNode("")
+		
+		node = document.createTextNode("할인율 : "+rand+"%");
+		
+		//p태그에 TextNode를 추가 - append
+		ptag.appendChild(node);
+		//clickdiv에 p태그를 추가
+		clickdiv.appendChild(ptag);
+		
+		//clickdiv에 대해서 더이상 클릭되지않도록 한다.
+	}
+	
+	
+	
+	
+</script>
+<style>
+
+	.box1{
+		height :400px;
+		width : 100%;
+		margin-left : 10px;
+		font-size: 1.3em;
+	}
+	
+	.box{
+		height : 400px;
+		padding : 20px;
+		color : white;
+	}
+	
+	#out{
+		width : 95%;
+		height :80%;
+		margin : 10px;
+	}
+	
+	.cont{
+		background : gray;
+		box-sizing : border-box;
+		width :	calc(23% - 1px);
+		height : 80%;
+		margin : 5px;
+		float : left;
+	}
+	
+	img:hover{
+		border : 3px solid blue;
+	}
+	
+	img{
+		width : 95%;
+		height : 50%;
+	}
+	
+	span{
+		color : red;
+		font-weight: bold;
+	}
+</style>
+</head>
+<body>
+<div class="box1">
+	일괄적 이벤트 종료<br>
+	<br>
+	<pre>
+	vlist = document.getElementsByClassName('cont');<br>
+	<br>
+	for(i=0 ; i < vlist.length; i++){<br>
+		vlist[i].addEventListener('click', sale);<br>
+	}<br>
+	</pre>
+	
+	이벤트제거<br>
+	<pre>
+		<span>vlist[i].addEventListener('click', sale);K</span><br>
+	</pre>
+</div>
+<div class="box">
+	<h1>Jump for Joy Sale</h1>
+<!-- 	<div id="out">
+		<div class="cont" id="div1" onclick="click1(this)">
+			<img id = "1" src="../images/image.1.jpg" >
+		</div>
+		<div class="cont" id="div2" onclick="click1(this)">
+			<img id = "2" src="../images/image.2.jpg" >
+		</div>
+		<div class="cont" id="div3" onclick="click1(this)">
+			<img id = "3"src="../images/image.3.jpg" >
+		</div>
+		<div class="cont" id="div4" onclick="click1(this)">
+			<img id = "4" src="../images/image.4.jpg">
+		</div>
+	</div> -->
+	<div class="box">
+		<div class="cont"><img src="../images/image.1.jpg" ></div>
+		<div class="cont"><img src="../images/image.2.jpg" ></div>
+		<div class="cont"><img src="../images/image.3.jpg" ></div>
+		<div class="cont"><img src="../images/image.4.jpg" ></div>
+	</div>
+	
+</div>
+
+
+</body>
+</html>

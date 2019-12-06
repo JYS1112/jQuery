@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+
+		$('div').on('click','.but',function(){		//on을 사용할경우 선택자의 위치는 중간으로 변경한다.
+			$('<button/>',{
+				'type':'button',
+				'text':'새로운 버튼',
+				'class':'but'
+			}).appendTo('div#result');
+			
+		})
+		
+		$('#clear').on('click',function(){
+			//$('div').undelegate('click');
+			//$('div').off('click');
+			$('div').unbind('click')
+		})
+		
+
+	})
+</script>
+<style>
+	div{
+		width : 100%;
+		height : auto;
+	}
+</style>
+</head>
+<body>
+<pre>
+delegate : 
+	실행전에 미리 정적으로 만들어져 있었던 요소나
+	실행중 동적으로 새롭게 만들어지는 요소에 똑같이 
+	이벤트 핸들러를 연결한다. 
+	$('div').on('click','.but',function(){})
+	$('div').delegate('.but','click',function(){})
+	
+	div는 .but의 부모요소다.
+	document가 올수도 있다.
+해제 : undelegate/ off/ unbind
+	$('div').unbind('click')
+</pre>
+<div>
+	<button class="but" type="button">버튼1</button>
+	<button class="but" type="button">버튼2</button>
+	<button class="but" type="button">버튼3</button>
+	
+</div>
+<button id="clear" type="button">해제</button>
+<br>
+<hr color="red">
+<br>
+<div id="result">
+</div>
+</body>
+</html>

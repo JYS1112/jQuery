@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		count = 0;	
+	
+		$('.add').on('click',function(){
+		//$(document).on('click','.add',function(){
+			
+			count++;
+			file = "";
+			file += "<span id='"+count+"'>";
+			file += "파일 : <input type='file'>";
+			//file += "<button type='button' class='add'>추가</button>";
+			file += "<button type='button' class='del "+count+"'>삭제</button>";
+			file += "<br></span>";
+			$('form').append(file);
+		})
+	
+		$(document).on('click','.del',function(){
+			
+			vclass = $(this).attr('class');
+			//console.log(vclass);
+			
+			//공백을 기준으로 앞뒤 문자열을 분리하기(자른다) - 배열을 리턴 0엔 del, 1엔 숫자가 담겨있다.
+			vc = vclass.split(" ");
+			$('span#'+vc[1]).remove();
+			
+		})
+		
+		
+	})
+</script>
+</head>
+<body>
+	<form>
+		이름 : <input type="text" value="korea"><br>
+		파일 : <input type="file">
+		<button class="add" type="button">추가</button><br>
+	</form>
+</body>
+</html>

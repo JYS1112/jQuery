@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		$('#show').on('click',function(){
+			$('img').show(2000, "swing", function(){
+				alert("곰이 나타났다!!")
+			});
+		})
+		$('#hide').on('click',function(){
+			$('img').hide("slow");
+		})
+		$('#toggle').on('click',function(){
+			$('img').toggle(90000, 'linear');
+		})
+		
+	
+
+	})
+</script>
+<style>
+	/* img{
+		width : 200px;
+		height : 200px;
+	} */	
+</style>
+</head>
+<body>
+<button type="button" id="show">show</button>
+<button type="button" id="hide">hide</button>
+<button type="button" id="toggle">toggle</button>
+<button type="button" id="slideUp">slideUp</button>
+<button type="button" id="slideDown">slideDown</button>
+<button type="button" id="slideToggle">slideToggle</button>
+<button type="button" id="fadeIn">fadeIn</button>
+<button type="button" id="fadeOut">fadeOut</button>
+<button type="button" id="fadeTo">fadeTo</button>
+<button type="button" id="fadeToggle">fadeToggle</button>
+<br><br>
+<img src="../images/123123.jpg" visible="false">
+</body>
+</html>
