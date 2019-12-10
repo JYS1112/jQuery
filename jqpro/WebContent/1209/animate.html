@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<link rel="stylesheet" href="../css/mycss.css">
+		<script>
+			$(function() {
+				
+				$('#btn1').on('click', function () {
+					px = 100;
+					img = $('#im1');
+					aa = setInterval(function () {
+				
+						// 사용가능한 브라우저의 크기를 구한다.
+						wid = $(window).width()
+						end = img.offset().left+img.width()
+						// 왼쪽좌표가 브라우저의 크기를 벗어나지 않도록
+						if(wid<end){
+							$('#im1').animate().stop();
+							window.clearInterval(aa);
+							px = wid-end;
+						}
+						// 끝까지 가면 멈춘다.
+						$('#im1').animate({ "left" : "+="+px+"px" }, 100);
+					}, 100);
+				});
+				/* $('#btn1').on('click', function () {
+					img = $('#im1');
+					aa = setInterval(function () {
+				
+						// 사용가능한 브라우저의 크기를 구한다.
+						wid = $(window).width()
+						end = wid-img.width()
+						// 왼쪽좌표가 브라우저의 크기를 벗어나지 않도록
+						// 끝까지 가면 멈춘다.
+						$('#im1').animate({ "left" : end }, 100);
+					}, 100);
+				}); */
+				
+				$('#btn2').on('click', function () {
+					$('#im1').hide(500);
+					$('#im1').delay(500); // 0.5초 지연
+					$('#im1').show(1000);
+				})
+				
+				
+			})
+		</script>
+		<style>
+			img{
+				width: 200px;
+				height: 200px;
+ 				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="im1" src="../images/dog.png" alt="" /><br />
+    	<button id="btn1">animate()</button>
+    	<button id="btn2">delay</button>
+		
+	</body>
+</html>

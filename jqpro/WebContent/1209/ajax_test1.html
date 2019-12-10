@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<script>
+	$(function(){
+		$('#btn1').on('click',function(){
+			//입력한 이름과 전화번호를 가져온다.
+			vname = $('#name').val();
+			vtel = $('#tel').val();
+			
+			$('#ff').attr('action','test1.jsp?name='+vname+'&tel='+vtel);
+			$('#ff').attr('method','get');
+			$('#ff').submit();
+		})
+		
+		xhr = new XMLHttpRequest();
+		// ajax를 이용해서 전송한다.
+		$('.btnget').click(function(){
+			vname = $('#name').val();
+			vtel = $('#tel').val();
+			
+			
+			//요청 - get
+			xhr.open("get","test1.jsp?name="+vname+"&tel="+vtel)
+			xhr.send();
+			//응답
+			xhr.onreadystatechange = function(){
+				//console.log(this.readyState)
+				if(this.readyState==4 && this.status == 200){
+					res = this.responseText;
+					$('.result').html(res);
+				}
+			}
+		})
+		
+		$('.btnpost').click(function(){
+			vname = $('#name2').val();
+			vtel = $('#tel2').val();
+			
+			// 응답
+			xhr.onreadystatechange = function(){
+				if(this.readyState==4 && this.status == 200){
+					res = this.responseText;
+					$('.result').html(res);
+				}
+			}
+			// 요청 - post
+			xhr.open("post","test1.jsp");
+			xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			xhr.send("name="+vname+"&tel="+vtel);
+				
+			
+		})
+	})
+</script>
+<style>
+	div{
+		width : 50%;
+		height : auto;
+		border : 1px solid lightgray;
+	}
+</style>
+</head>
+<body>
+<pre>
+&lt;form id="ff"&gt;
+form태그의 action과 method를 버튼의 이벤트에서 설정
+submit()를 실행
+</pre>
+	<form id="ff">
+		이름 : <input type="text" name="name" id="name"><br>
+		전화번호: <input type="text" name="tel" id="tel"><br><br>
+		<button id="btn1" type="button">기존의 방식(get)</button>
+		<button class="btnget" id="btn2" type="button">ajax 방식(get)</button>
+	</form>
+	<br>
+	<hr color="blue">
+	<br>
+<pre>
+기본의 방식
+ &lt;form id="ff2" action="test1.jsp" method="post"&gt;
+ button type="submit"으로 실행	
+
+ajax방식
+ 전체페이지를 다시 만들거나 리로드하지않고 결과값만 일부분의 영역에 출력
+ readyState==4 와 status==200 의 값에 따라 응답을 받는다.
+</pre>
+	<form id="ff2" action="test1.jsp" method="post">
+		이름 : <input type="text" name="name" id="name2"><br>
+		전화번호: <input type="text" name="tel" id="tel2"><br><br>
+		<button id="btn21" type="submit">기존의 방식(post)</button>
+		<button class="btnpost" id="btn22" type="button">ajax 방식(post)</button>
+	</form>
+	<br>
+	<div class="result"></div>
+	
+</body>
+</html>
